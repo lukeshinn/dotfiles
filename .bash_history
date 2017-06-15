@@ -1,0 +1,1 @@
+/Users/luke.shinn/.bash_history
