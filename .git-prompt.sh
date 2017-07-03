@@ -1,1 +1,0 @@
-/Users/luke.shinn/.git-prompt.sh

@@ -1,5 +1,6 @@
+" Luke Shinn vim settings
 
-xnoremap p pgvy		" allows more than 1 paste
+xnoremap p pgvy		  " allows more than 1 paste
 set nocompatible          " dont try to be compatible with vi
 syntax enable             " enable syntax processing
 filetype plugin on        " load filetype-specific indent files
@@ -33,6 +34,7 @@ let g:ycm_keep_logfiles = 1
 let g:ycm_log_level = 'debug'
 let g:ycm_key_invoke_completion = '<C-Space>'
 
+				"YCM language scrips
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -46,14 +48,12 @@ autocmd vimenter * NERDTree   " load NERDtree on open
 nmap <F5> :NERDTreeToggle<CR> " map f5 to toggle NERDtree
 set autochdir                 " open window in same path as NT
 
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+" Vim plugged by junegunn https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
 
 Plug 'valloric/matchtagalways'
 
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline'	" adds bottom information bar
 
 Plug 'jiangmiao/auto-pairs'	" Pair brackets and quotes
 
@@ -61,9 +61,6 @@ Plug 'valloric/youcompleteme'	" auto completion dropdowns
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -89,7 +86,6 @@ Plug 'flazz/vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()
-
 
 colorscheme gruvbox
 
