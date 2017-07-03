@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/luke.shinn/Repos/fdp_cdn/designs/np_instinct/subdesigns/8475'
+let g:netrw_dirhist_2='/Users/luke.shinn/Repos/fdp_cdn/designs/np_nourish/subdesigns/8472'
+let g:netrw_dirhist_3='/Users/luke.shinn/Projects/dotfiles/vim'
