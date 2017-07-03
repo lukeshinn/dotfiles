@@ -1,1 +1,0 @@
-/Users/luke.shinn/.bash_profile

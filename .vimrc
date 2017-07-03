@@ -1,1 +1,1 @@
-/Users/luke.shinn/.vimrc
+.vimrc
