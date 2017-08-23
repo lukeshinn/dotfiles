@@ -138,6 +138,66 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
+" =============================================================================
+"  Leader Keybinds
+"==============================================================================
+
+" set a map leader for more key combos
+let mapleader = ‘,’
+
+" shortcut to save ”
+nmap <leader> :w<cr>
+
+" super save - save session in its current state, open agian with `vim -S`
+nnoremap <leader>s :mksession!<CR>
+
+" clear highlighted search term, but keep in register
+nnoremap <leader><esc> :noh<cr>
+
+" select all and copy to clipboard
+nmap <leader>a :%y+<cr>
+
+" search through tags and jump to file with with ctrl-p
+nnoremap <leader>tf :CtrlPTag<cr>
+
+" search buffers
+nnoremap <leader>bf :CtrlPBuffer<cr>
+
+" additional shortcut for default
+nnoremap <leader>f :CtrlP<cr>
+
+" Buffer nav
+noremap <leader>z :bp<CR>
+noremap <leader>x :bn<CR>
+
+" close current buffer but not current window
+noremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
+" reload vimrc file
+nnoremap <leader>! :so $MYVIMRC<cr>
+
+" reindent entire file
+" mark cursor and put cursor back, center cursor in window
+nnoremap <leader>r magg=G`az.
+
+" leader w for pane control
+nnoremap <leader>w <C-w>
+
+" focus splits with ctrl + direction
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<cr>
+
+" Display current file in the NERDTree ont the left
+nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
+
+" open v split
+nmap <leader>h :vsp<cr>
+
+"Add Comment
+
 
 
 
