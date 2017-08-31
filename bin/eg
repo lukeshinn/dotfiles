@@ -1,0 +1,38 @@
+
+#!/bin/bash
+
+#itermlauncher - open editor, create iterm layout, start gulp
+
+# create new tab and split it
+IFS='%'
+osascript -e '
+tell application "iTerm2"
+try
+
+  tell current session of current window
+    set name to "GULP:"
+    write text "vim ."
+    split vertically with same profile
+   end tell
+
+  tell the last session of current tab of current window
+    write text "vim ."
+    split vertically with same profile
+  end tell
+
+  tell the last session of current tab of current window
+    write text "savesite"
+    split horizontally with same profile
+  end tell
+
+  tell the last session of current tab of current window
+    write text "gup"
+  end tell
+
+  tell the third session of current tab of current window
+    select
+  end tell
+
+  end try
+end tell
+'

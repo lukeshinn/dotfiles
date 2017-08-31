@@ -31,36 +31,41 @@ set clipboard=unnamed         " Share Mac clipboard
 set noswapfile	              " don’t make swap in vim
 set omnifunc=syntaxcomplete#Complete
 
-" autocmd vimenter * NERDTree   " load NERDtree on open
-nmap <F5> :NERDTreeToggle<CR> " map f5 to toggle NERDtree
-set autochdir                 " open window in same path as NT
+
+" =============================================================================
+"  Nerd Tree Settings 
+"==============================================================================
+autocmd BufEnter * lcd %:p:h
+let loaded_netrwPlugin = 1
+ autocmd vimenter * NERDTree   " load NERDtree on open
+" set autochdir                 " open window in same path as NT
 
 " =============================================================================
 "  Auto Completion
 "==============================================================================
 
-"set pumheight =8		" number of completions shown
-"let g:ycm_min_num_of_chars_for_completion = 2 " you complete me settings
-"let g:ycm_auto_trigger = 1
-"let g:ycm_keep_logfiles = 1
-"let g:ycm_log_level = 'debug'
-"let g:ycm_key_invoke_completion = '<C-Space>'
+set pumheight =8		" number of completions shown
+let g:ycm_min_num_of_chars_for_completion = 2 " you complete me settings
+let g:ycm_auto_trigger = 1
+let g:ycm_keep_logfiles = 1
+let g:ycm_log_level = 'debug'
+let g:ycm_key_invoke_completion = '<C-Space>'
 
 " UltiSnip Settings
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-				"YCM language scrips
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-" autocmd FileType c set omnifunc=ccomplete#Complete
+	"YCM language scrips
+ autocmd FileType python set omnifunc=pythoncomplete#Complete
+ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+ autocmd FileType c set omnifunc=ccomplete#Complete
 
-" omnifuncs for deplete
+	" omnifuncs for deplete
 augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -69,16 +74,17 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+
 " tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
+" if exists('g:plugs["tern_for_vim"]')
+"   let g:tern_show_argument_hints = 'on_hold'
+"   let g:tern_show_signature_in_pum = 1
+"   autocmd FileType javascript setlocal omnifunc=tern#Complete
+" endif
 
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" let g:SuperTabDefaultCompletionType = '<c-n>'
+" inoremap <expr><tab> pumvisible() 
+"  let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " =============================================================================
 "  Vim-Plug
@@ -87,7 +93,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Vim plugged by junegunn https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'valloric/matchtagalways'
 
@@ -95,7 +101,7 @@ Plug 'bling/vim-airline'	" adds bottom information bar
 
 Plug 'jiangmiao/auto-pairs'	" Pair brackets and quotes
 
-"Plug 'valloric/youcompleteme'	" auto completion dropdowns 
+Plug 'valloric/youcompleteme'	" auto completion dropdowns 
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -105,10 +111,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
@@ -143,7 +145,7 @@ set background=dark
 "==============================================================================
 
 " set a map leader for more key combos
-let mapleader = ‘,’
+let mapleader =  ','
 
 " shortcut to save ”
 nmap <leader> :w<cr>
@@ -196,7 +198,9 @@ nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
 " open v split
 nmap <leader>h :vsp<cr>
 
-"Add Comment
+" map f5 to toggle NERDtree
+nnoremap <leader>nt :NERDTreeToggle %<CR> 
+
 
 
 

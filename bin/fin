@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#same thing as pos, but for fpp alias
+#opens a second window
+IFS='%'
+appName="$1"
+osascript -e 'tell application "System Events"
+	try
+		tell process '\"$appName\"'
+			reopen
+			activate
+			set frontmost to true
+			if number of windows is less than or equal to 1 then
+				keystroke "n" using command down
+				delay .5
+			end
+
+			set position of window 1 to {'\"$2\"', '\"$3\"'}
+		end tell
+	end try
+end tell
+
+tell application "Terminal"
+	activate
+end tell'

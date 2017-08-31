@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#starter - open app
+IFS='%'
+appName="$1"
+osascript -e '
+tell application "System Events"
+  try
+    tell application '\"$appName\"'
+      activate
+      reopen
+    end tell
+  end try
+end tell
+'

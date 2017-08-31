@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#get bounds of application window by giving an ApplicationName
+#get AppName
+IFS='%'
+appName="$1"
+osascript -e 'tell application "System Events"
+	tell process '\"$appName\"'
+		set b to size of window 1
+		set c to item 1 of b
+		set d to item 2 of b
+		display dialog c & d
+	end tell
+end tell
+'
