@@ -37,7 +37,8 @@ set omnifunc=syntaxcomplete#Complete
 "==============================================================================
 autocmd BufEnter * lcd %:p:h
 let loaded_netrwPlugin = 1
- autocmd vimenter * NERDTree   " load NERDtree on open
+let NERDTreeQuitOnOpen=1
+autocmd vimenter * NERDTree   " load NERDtree on open
 " set autochdir                 " open window in same path as NT
 
 " =============================================================================
