@@ -4,6 +4,7 @@
 " =============================================================================
 "  General Settings
 "==============================================================================
+set ma                   " set modifiable on
 xnoremap p pgvy		  " allows more than 1 paste
 set nocompatible          " dont try to be compatible with vi
 syntax enable             " enable syntax processing
@@ -52,11 +53,6 @@ let g:ycm_keep_logfiles = 1
 let g:ycm_log_level = 'debug'
 let g:ycm_key_invoke_completion = '<C-Space>'
 
-" UltiSnip Settings
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 	"YCM language scrips
  autocmd FileType python set omnifunc=pythoncomplete#Complete
  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -76,17 +72,6 @@ augroup omnifuncs
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
-" tern
-" if exists('g:plugs["tern_for_vim"]')
-"   let g:tern_show_argument_hints = 'on_hold'
-"   let g:tern_show_signature_in_pum = 1
-"   autocmd FileType javascript setlocal omnifunc=tern#Complete
-" endif
-
-" deoplete tab-complete
-" inoremap <expr><tab> pumvisible() 
-"  let g:SuperTabDefaultCompletionType = '<c-n>'
-
 " =============================================================================
 "  Vim-Plug
 "==============================================================================
@@ -95,6 +80,15 @@ augroup end
 call plug#begin('~/.vim/plugged')
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"
+Plug 'scrooloose/nerdcommenter' " commenter plugin that uses leader
+
+Plug 'garbas/vim-snipmate'   " Snippets
+
+Plug 'MarcWeber/vim-addon-mw-utils' "snipmate dependencies
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 Plug 'valloric/matchtagalways'
 
@@ -103,12 +97,6 @@ Plug 'bling/vim-airline'	" adds bottom information bar
 Plug 'jiangmiao/auto-pairs'	" Pair brackets and quotes
 
 Plug 'valloric/youcompleteme'	" auto completion dropdowns 
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -124,12 +112,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Color-schemes
 Plug 'flazz/vim-colorschemes' 
-
-" Track the engine.
-Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
 
 " Initialize plugin system
 call plug#end()
