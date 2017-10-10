@@ -51,7 +51,9 @@ let g:ycm_min_num_of_chars_for_completion = 2 " you complete me settings
 let g:ycm_auto_trigger = 1
 let g:ycm_keep_logfiles = 1
 let g:ycm_log_level = 'debug'
-let g:ycm_key_invoke_completion = '<C-Space>'
+"let g:ycm_key_invoke_completion = '<leader>' 
+let g:ycm_key_list_select_completion = ['<F3>']
+
 
 	"YCM language scrips
  autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -79,7 +81,7 @@ augroup end
 " Vim plugged by junegunn https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "
 Plug 'scrooloose/nerdcommenter' " commenter plugin that uses leader
 
