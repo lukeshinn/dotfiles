@@ -31,7 +31,15 @@ set fillchars=vert:│          " set vert split character to taller line
 set clipboard=unnamed         " Share Mac clipboard
 set noswapfile	              " don’t make swap in vim
 set omnifunc=syntaxcomplete#Complete
+set ignorecase " ignore case in search patterns
+set smartcase       " override the 'ignorecase' option if the search pattern contains upper case characters
 
+
+" prettydiff current file
+command! PrettyDiff call PrettyDiffer()
+function! PrettyDiffer()
+  silent :!prettydiff %
+endfunction
 
 " =============================================================================
 "  Nerd Tree Settings 
@@ -186,7 +194,12 @@ nmap <leader>h :vsp<cr>
 " map f5 to toggle NERDtree
 nnoremap <leader>nt :NERDTreeToggle %<CR> 
 
+" reindent entire file
+" mark cursor and put cursor back, center cursor in window
+nnoremap <leader>r magg=G`a
 
+" redraw becasue prettydiff function is broken
+nnoremap <leader>rd :redraw! <CR>
 
 
 
