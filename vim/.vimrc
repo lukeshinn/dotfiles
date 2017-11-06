@@ -34,6 +34,9 @@ set omnifunc=syntaxcomplete#Complete
 set ignorecase " ignore case in search patterns
 set smartcase       " override the 'ignorecase' option if the search pattern contains upper case characters
 
+"search plugin settings
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
 
 " prettydiff current file
 command! PrettyDiff call PrettyDiffer()
@@ -89,7 +92,6 @@ augroup end
 " Vim plugged by junegunn https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
- Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "
 Plug 'scrooloose/nerdcommenter' " commenter plugin that uses leader
 
@@ -100,7 +102,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
-Plug 'valloric/matchtagalways'
+Plug 'valloric/matchtagalways' 
 
 Plug 'bling/vim-airline'	" adds bottom information bar
 
@@ -111,17 +113,14 @@ Plug 'valloric/youcompleteme'	" auto completion dropdowns
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Color-schemes
 Plug 'flazz/vim-colorschemes' 
+
+Plug 'google/vim-searchindex'         " show search position among all results
 
 " Initialize plugin system
 call plug#end()
@@ -201,5 +200,6 @@ nnoremap <leader>r magg=G`a
 " redraw becasue prettydiff function is broken
 nnoremap <leader>rd :redraw! <CR>
 
-
+" clear search selection
+nnoremap <leader><esc> :noh<cr> 
 
