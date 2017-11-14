@@ -1,1 +1,0 @@
-/Users/luke.shinn/Projects/dotfiles/vim/zshrc
