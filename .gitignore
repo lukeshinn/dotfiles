@@ -1,2 +1,11 @@
 vim/.vim/plugged/
 ./DS_Store
+.DS_Store
+
+.DS_Store
+bin/.DS_Store
+vim/.DS_Store
+vim/.vim/.DS_Store
+vim/.vim/autoload/.DS_Store
+vim/.vim/bundle/.DS_Store
+zsh/.DS_Store
