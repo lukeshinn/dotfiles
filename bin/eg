@@ -9,6 +9,21 @@ tell application "iTerm2"
 try
 
   tell current session of current window
+
+write text "  __________                   __               __   "
+write text "  \\______   \\_______  ____    |__| ____   _____/  |_ "
+write text "   |     ___/\\_  __ \\/  _ \\   |  |/ __ \\_/ ___\\   __\\"
+write text "   |    |     |  | \\(  <_> )  |  \\  ___/\\  \\___|  |  "
+write text "   |____|     |__|   \\____/\\__|  |\\___  >\\___  >__|  "
+write text "                          \\______|    \\/     \\/      "
+write text "    _________ __                 __                  "
+write text "   /   _____//  |______ ________/  |_  ___________   "
+write text "   \\_____  \\\\   __\\__  \\\\_  __ \\   __\\/ __ \\_  __ \\  "
+write text "   /        \\|  |  / __ \\|  | \\/|  | \\  ___/|  | \\/  "
+write text "  /_______  /|__| (____  /__|   |__|  \\___  >__|     "
+write text "          \\/           \\/                 \\/         "
+write text "                                                     "
+
     set name to "GULP:"
     write text "vim ."
     split vertically with same profile

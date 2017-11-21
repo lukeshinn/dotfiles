@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo "  ________.__  __    __________                             .__           " 
+echo " /  _____/|__|/  |_  \______   \____________    ____   ____ |  |_________ "
+echo "/   \  ___|  \   __\  |    |  _/\_  __ \__  \  /    \_/ ___\|  |  \_  __ \\"
+echo "\    \_\  \  ||  |    |    |   \ |  | \// __ \|   |  \  \___|   Y  \  | \/"
+echo " \______  /__||__|    |______  / |__|  (____  /___|  /\___  >___|  /__|   "
+echo "        \/                   \/             \/     \/     \/     \/       "
+
+echo -e "\033[92m================= Enter Name of Branch ============================\033[39m";
+read branch 
+
+echo -e "\033[92m================= Enter Commit Message ============================\033[39m";
+read message
+
+echo -e "\033[92m================= Checkout Branch  ================================\033[39m";
+git cob $branch;
+
+echo -e "\033[92m================= Add all and add commit message ==================\033[39m";
+git add --all;
+git commit -m "$message";
+
+echo -e "\033[92m================= Pull Master =====================================\033[39m";
+git comp;
+
+echo -e "\033[92m================= Merge Branch $branch ============================\033[39m";
+git merge $branch
+
+echo -e "\033[92m==================================================================\033[39m";
+select yn in "Yes" "No"; do
+	case $yn in
+		Yes ) git push; break;;
+		No ) echo -e 'push has been \033[91m cancelled \033[39m'; return 0;;
+	esac
+done
+
+
