@@ -1,19 +1,18 @@
 #!/bin/bash
 
-figlet -f graffiti Git Branchr 
-
+figlet -f graffiti -w 300 Git Re-Branchr 
 
 echo -e "\033[92m================= You are about to commit these changes ===========\033[39m";
 git status;
 
-echo -e "\033[92m================= Enter Name of Branch ============================\033[39m";
+echo -e "\033[92m================= Enter Name of Branch to Checkout ================\033[39m";
 read branch 
 
 echo -e "\033[92m================= Enter Commit Message ============================\033[39m";
 read message
 
 echo -e "\033[92m================= Checkout Branch  ================================\033[39m";
-git cob $branch;
+git checkout $branch;
 
 echo -e "\033[92m================= Add all and add commit message ==================\033[39m";
 git add --all;
