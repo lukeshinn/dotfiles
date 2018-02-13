@@ -122,6 +122,8 @@ Plug 'flazz/vim-colorschemes'
 
 Plug 'google/vim-searchindex'         " show search position among all results
 
+Plug 'lumiliet/vim-twig'                                      " twig syntax
+
 " Initialize plugin system
 call plug#end()
 

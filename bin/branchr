@@ -25,6 +25,10 @@ git comp;
 echo -e "\033[92m================= Merge Branch $branch ============================\033[39m";
 git merge $branch
 
+
+echo -e "\033[92m================= Add Tymer for $branch ============================\033[39m";
+tymer add "$branch" "+20M"
+
 echo -e "\033[92m==================================================================\033[39m";
 select yn in "Yes" "No"; do
 	case $yn in

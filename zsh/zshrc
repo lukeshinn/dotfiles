@@ -130,3 +130,5 @@ zstyle ':completion:*' insert-tab pending
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+
+alias gbr="git branch | grep -v "master" | xargs git branch -D"

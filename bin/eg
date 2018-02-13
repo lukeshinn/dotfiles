@@ -23,7 +23,6 @@ try
   end tell
 
   tell the last session of current tab of current window
-    write text "savesite"
     split horizontally with same profile
   end tell
 
