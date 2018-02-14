@@ -1,4 +1,4 @@
-
+source ~/.prompt.zsh
 
 # Move next only if `homebrew` is installed
 if command -v brew >/dev/null 2>&1; then
@@ -7,22 +7,16 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 export FED_DOTFILES=$HOME/Repos/fed-framework/fed_dotfiles
-
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-source $FED_DOTFILES/system/aliases.sh
-source ~/.prompt.zsh
-
+# terminal fonts
 export PS1="\[\e[0;36m\]\W\[\e[0;32m\]\$(__git_ps1)\[\e[0;37m\]\$ \[\e[0m\]>"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
@@ -31,6 +25,7 @@ unset file;
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+# zshell logging
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -57,6 +52,54 @@ setopt HIST_REDUCE_BLANKS
 #   like: git comm-[tab]
 # setopt complete_aliases
 unsetopt complete_aliases
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# ==================================================
+#/  shell aliases 
+# ==================================================
+
+alias volup="amixer -D pulse sset Master 100% unmute"
+
+alias ds="cd ~/Documents/design-shortcuts"
+
+alias rep="cd ~/Repos/fdp_cdn/designs"
+
+alias gbr="git branch | grep -v "master" | xargs git branch -D"
+
+alias git pom="git pull origin master"
+
+alias git cob="git checkout branch"
+
+alias git brd="git branch -D"
+
+# ==================================================
+#/  git completion  
+# ==================================================
+fpath=(~/.zsh $fpath)
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# ==================================================
+#/  luke's reminder notes  
+# ==================================================
+# xinput or synclient to adjust trackpad settings : synclient MaxTapTime=0
+# sysctl for kernel modification
+#
+
+# ==================================================
+#/  Misc  
+# ==================================================
 
 #bindkey '^[^[[D' backward-word
 #bindkey '^[^[[C' forward-word
@@ -66,8 +109,6 @@ unsetopt complete_aliases
 #bindkey '^?' backward-delete-char
 
 # key bindings
-
-
 
 
 # Case-insensitive globbing (used in pathname expansion)
@@ -108,27 +149,4 @@ unsetopt complete_aliases
 ## Add `killall` tab completion for common apps
 #complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-alias ds="cd ~/Documents/design-shortcuts"
 
-alias rep="cd ~/Repos/fdp_cdn/designs"
-
-# ==================================================
-#/  git completion  
-# ==================================================
-fpath=(~/.zsh $fpath)
-
-# matches case insensitive for lowercase
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# pasting with tabs doesn't perform completion
-zstyle ':completion:*' insert-tab pending
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-alias gbr="git branch | grep -v "master" | xargs git branch -D"
