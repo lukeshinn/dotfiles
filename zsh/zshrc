@@ -11,6 +11,12 @@ export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+# laravel 
+export PATH=$HOME/.composer/vendor/bin:$PATH
+
+# php
+export PATH=/usr/local/php5/bin:$PATH
+
 # terminal fonts
 export PS1="\[\e[0;36m\]\W\[\e[0;32m\]\$(__git_ps1)\[\e[0;37m\]\$ \[\e[0m\]>"
 
@@ -67,11 +73,15 @@ alias ds="cd ~/Documents/design-shortcuts"
 
 alias rep="cd ~/Repos/fdp_cdn/designs"
 
+alias cdn="cd ~/Repos/fdp-devops/code/cdn/designs"
+
 alias gbr="git branch | grep -v "master" | xargs git branch -D"
 
 alias git pom="git pull origin master"
 
 alias git cob="git checkout branch"
+
+alias git brd="git branch -D"
 
 alias git brd="git branch -D"
 

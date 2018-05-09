@@ -1,0 +1,68 @@
+#!/bin/bash
+#shopt -s expand_aliases
+alias cdn="cd ~/Repos/fdp-devops/code/cdn/designs"
+
+#read -r -p "Is this a non-profit design? [y/N] " response
+#case "$response" in
+    #[yY][eE][sS]|[yY]) 
+	    #product="np_"
+        #;;
+    #*)
+	    #product="pp_"
+        #;;
+#esac
+
+read "brave?Is this a non-profit design?"
+if [[ "$brave" =~ ^[Yy]$ ]]
+then
+	    product="np_"
+else
+
+	    product="pp_"
+fi
+
+#read -r -p "Do they have a subdesign? [y/N] " response
+#case "$response" in
+    #[yY][eE][sS]|[yY]) 
+	    #subdesign="yes"
+        #;;
+    #*)
+	    #subdesign="no"
+        #;;
+#esac
+
+read "brave?Do they have a subdesign?"
+if [[ "$brave" =~ ^[Yy]$ ]]
+then
+	    subdesign="yes"
+else
+
+	    subdesign="no"
+fi
+
+echo -e "\033[92m======= Design ========\033[39m";
+read design
+
+
+echo -e "\033[92m======= Subdesign Number ========\033[39m";
+read subdesignnumber
+
+
+if [ $subdesign = "no" ]; then
+cdn
+cd $product$design
+cd subdesigns
+cp -r _starter $subdesignnumber
+cd $subdesignnumber
+eg
+else
+cdn
+cd $product$design
+cd subdesigns/$subdesignnumber
+eg
+fi
+
+
+
+
+

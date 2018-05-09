@@ -124,6 +124,12 @@ Plug 'google/vim-searchindex'         " show search position among all results
 
 Plug 'lumiliet/vim-twig'                                      " twig syntax
 
+Plug 'wakatime/vim-wakatime'                                      " Time Tracker
+
+Plug 'tylerfowle/turtle.vim'                                      " comment generator 
+
+Plug 'tpope/vim-surround'                                      " surround selection with elements 
+
 " Initialize plugin system
 call plug#end()
 
@@ -205,3 +211,5 @@ nnoremap <leader>rd :redraw! <CR>
 " clear search selection
 nnoremap <leader><esc> :noh<cr> 
 
+" run savesite in current dir
+"nmap <silent> <leader>k :silent !savesite<cr>
