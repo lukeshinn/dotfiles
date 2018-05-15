@@ -13,12 +13,12 @@ try
     write text "figlet -f graffiti Project Starter"
 
     set name to "GULP:"
-    write text "vim ."
+    write text "findsettings"
     split vertically with same profile
    end tell
 
   tell the last session of current tab of current window
-    write text "vim ."
+    write text "findoverrides"
     split vertically with same profile
   end tell
 

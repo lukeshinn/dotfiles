@@ -1,0 +1,5 @@
+#!/bin/bash
+
+settingspath=`find . -name "_settings.scss"`
+
+vim $settingspath

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+overridepath=`find . -name "_overrides.scss"`
+
+vim $overridepath
