@@ -73,7 +73,7 @@ alias volup="amixer -D pulse sset Master 100% unmute"
 
 alias ds="cd ~/Documents/design-shortcuts"
 
-alias rep="cd ~/Repos/fdp_cdn/designs"
+alias rep="cd ~/Repos/cdn/designs"
 
 alias cdn="cd ~/Repos/fdp-devops/code/cdn/designs"
 

@@ -38,6 +38,10 @@ set smartcase       " override the 'ignorecase' option if the search pattern con
 set incsearch  " search as characters are entered
 set hlsearch   " highlight matches
 
+" auto reload file when changed on disk
+set updatetime=750
+au CursorHold,FocusGained,BufEnter * checktime
+
 " prettydiff current file
 command! PrettyDiff call PrettyDiffer()
 function! PrettyDiffer()
@@ -147,6 +151,11 @@ set background=dark
 " set a map leader for more key combos
 let mapleader =  ','
 
+" open v split
+nmap <leader>v :vsp<cr>
+" open h split
+nmap <leader>h :sp<cr>
+
 " shortcut to save ”
 nmap <leader> :w<cr>
 
@@ -194,9 +203,6 @@ nnoremap <leader>. :lcd %:p:h<cr>
 
 " Display current file in the NERDTree ont the left
 nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
-
-" open v split
-nmap <leader>h :vsp<cr>
 
 " map f5 to toggle NERDtree
 nnoremap <leader>nt :NERDTreeToggle %<CR> 
