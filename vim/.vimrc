@@ -96,43 +96,48 @@ augroup end
 " Vim plugged by junegunn https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-"
-Plug 'scrooloose/nerdcommenter' " commenter plugin that uses leader
+" commenter plugin that uses leader
+Plug 'scrooloose/nerdcommenter' 
 
-Plug 'garbas/vim-snipmate'   " Snippets
+" Snippets
+Plug 'garbas/vim-snipmate'   
 
-Plug 'MarcWeber/vim-addon-mw-utils' "snipmate dependencies
+"snipmate dependencies
+Plug 'MarcWeber/vim-addon-mw-utils' 
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 
+" Adds end curleys and brackets
 Plug 'valloric/matchtagalways' 
 
-Plug 'bling/vim-airline'	" adds bottom information bar
+" adds bottom information bar
+Plug 'bling/vim-airline'	
 
-Plug 'jiangmiao/auto-pairs'	" Pair brackets and quotes
+" Pair brackets and quotes
+Plug 'jiangmiao/auto-pairs'	
 
-Plug 'valloric/youcompleteme'	" auto completion dropdowns 
+" auto completion dropdowns 
+Plug 'valloric/youcompleteme'	
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 
 " Color-schemes
 Plug 'flazz/vim-colorschemes' 
 
-Plug 'google/vim-searchindex'         " show search position among all results
+" show search position among all results
+Plug 'google/vim-searchindex'
 
-Plug 'lumiliet/vim-twig'                                      " twig syntax
+" twig syntax
+Plug 'lumiliet/vim-twig'
 
-Plug 'wakatime/vim-wakatime'                                      " Time Tracker
+" Time Tracker
+Plug 'wakatime/vim-wakatime'
 
-Plug 'tylerfowle/turtle.vim'                                      " comment generator 
-
-Plug 'tpope/vim-surround'                                      " surround selection with elements 
+" surround selection with elements 
+Plug 'tpope/vim-surround'
 
 " Initialize plugin system
 call plug#end()
@@ -168,21 +173,6 @@ nnoremap <leader><esc> :noh<cr>
 " select all and copy to clipboard
 nmap <leader>a :%y+<cr>
 
-" search through tags and jump to file with with ctrl-p
-nnoremap <leader>tf :CtrlPTag<cr>
-
-" search buffers
-nnoremap <leader>bf :CtrlPBuffer<cr>
-
-" additional shortcut for default
-nnoremap <leader>f :CtrlP<cr>
-
-" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>x :bn<CR>
-
-" close current buffer but not current window
-noremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 " reload vimrc file
 nnoremap <leader>! :so $MYVIMRC<cr>
 
@@ -190,26 +180,17 @@ nnoremap <leader>! :so $MYVIMRC<cr>
 " mark cursor and put cursor back, center cursor in window
 nnoremap <leader>r magg=G`az.
 
-" leader w for pane control
-nnoremap <leader>w <C-w>
-
 " focus splits with ctrl + direction
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Set working directory
-nnoremap <leader>. :lcd %:p:h<cr>
 
 " Display current file in the NERDTree ont the left
 nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
 
 " map f5 to toggle NERDtree
 nnoremap <leader>nt :NERDTreeToggle %<CR> 
-
-" reindent entire file
-" mark cursor and put cursor back, center cursor in window
-nnoremap <leader>r magg=G`a
 
 " redraw becasue prettydiff function is broken
 nnoremap <leader>rd :redraw! <CR>

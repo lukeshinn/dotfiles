@@ -1,37 +1,68 @@
 source ~/.prompt.zsh
 
+
+# ==================================================
+#/  Asthetics 
+# ==================================================
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export CLICOLOR=true
+
+# terminal fonts
+export PS1="\[\e[0;36m\]\W\[\e[0;32m\]\$(__git_ps1)\[\e[0;37m\]\$ \[\e[0m\]>"
+
+
+# ==================================================
+#/ Firespring Settings 
+# ==================================================
+export FED_DOTFILES=$HOME/Repos/fed-framework/fed_dotfiles
+export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
+
+# FED Framework
+export PATH="$HOME/Repos/fed-framework/bin:$PATH"
+
+
+# ==================================================
+#/  git completion  
+# ==================================================
+fpath=(~/.zsh $fpath)
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+
+# ==================================================
+#/ MISC 
+# ==================================================
 # Move next only if `homebrew` is installed
+# https://gist.github.com/mischah/8149239
 if command -v brew >/dev/null 2>&1; then
 	# Load rupa's z if installed
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
 
-export FED_DOTFILES=$HOME/Repos/fed-framework/fed_dotfiles
-export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
 
+
+# ==================================================
+#/ PATHS 
+# ==================================================
 # laravel 
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # php
 export PATH=/usr/local/php5/bin:$PATH
 
-# terminal fonts
-export PS1="\[\e[0;36m\]\W\[\e[0;32m\]\$(__git_ps1)\[\e[0;37m\]\$ \[\e[0m\]>"
-
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
-export HISTSIZE=2000
 
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
 
 # zshell logging
 HISTFILE=~/.zsh_history
@@ -69,6 +100,11 @@ export NVM_DIR="$HOME/.nvm"
 #/  shell aliases 
 # ==================================================
 
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
 alias volup="amixer -D pulse sset Master 100% unmute"
 
 alias ds="cd ~/Documents/design-shortcuts"
@@ -87,20 +123,6 @@ alias git brd="git branch -D"
 
 alias git brd="git branch -D"
 
-# ==================================================
-#/  git completion  
-# ==================================================
-fpath=(~/.zsh $fpath)
-
-# matches case insensitive for lowercase
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# pasting with tabs doesn't perform completion
-zstyle ':completion:*' insert-tab pending
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
 
 # ==================================================
 #/  luke's reminder notes  
