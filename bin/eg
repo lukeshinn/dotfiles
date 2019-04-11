@@ -27,7 +27,7 @@ try
   end tell
 
   tell the last session of current tab of current window
-    write text "gup"
+    write text "yup"
   end tell
 
   tell the third session of current tab of current window

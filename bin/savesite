@@ -1,10 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# FOR COLOR CUSTOMIZATIONS
-# save the active Chrome window source to file
+# save the active Chrome window source
+# to files [cc.tmp.html] and [dev.tmp.html]
+
 # usage
-# savesite filename.html
-#
+# savesite filename
+
+if command -v figlet >/dev/null 2>&1; then
+figlet -f morse "savesite"
+fi
 
 IFS='%'
 appName="Google Chrome"
@@ -19,20 +23,62 @@ tell application "System Events"
 end tell
 EOT)
 
-FILENAME=${1:-"live.html"}
+FILE_LIVE_EXTENSION="-cc.tmp.html"
+FILE_DEV_EXTENSION="-dev.tmp.html"
 
-if [ -f $FILENAME ]; then
-  echo "==> file $FILENAME already exists..."
-  echo "==> deleting original file"
-  rm $FILENAME
+FILENAME_LIVE=${1:-"site"}
+FILENAME_DEV=${1:-"site"}
+
+FILENAME_LIVE="${FILENAME_LIVE}${FILE_LIVE_EXTENSION}"
+FILENAME_DEV="${FILENAME_DEV}${FILE_DEV_EXTENSION}"
+
+echo "==> $FILENAME_LIVE"
+echo "==> $FILENAME_DEV"
+echo "==>"
+
+if [ -f $FILENAME_LIVE ]; then
+  echo "==> file $FILENAME_LIVE already exists... deleting file"
+  rm $FILENAME_LIVE
 fi
 
-echo ""
-echo "==> saving ${URL} as ${FILENAME}"
-echo ""
+if [ -f $FILENAME_DEV ]; then
+  echo "==> file $FILENAME_DEV already exists... deleting file"
+  rm $FILENAME_DEV
+fi
 
-curl $URL > $FILENAME
+echo "==>"
+echo "==> saving ${URL} as:"
+echo "==> ${FILENAME_LIVE}"
+echo "==> ${FILENAME_DEV}"
+echo "==>"
 
+curl $URL > $FILENAME_LIVE
+cp $FILENAME_LIVE $FILENAME_DEV
+
+# LIVE / CC
+##################################################################
+# add stylesheet for theme right before </head>
 sed -i '' '/<\/head>/i\
 <link rel="stylesheet" href="css/stylesheet.css">\
-' $FILENAME
+' $FILENAME_LIVE
+##################################################################
+
+# DEV / LOCAL
+##################################################################
+# add stylesheet for theme right before </head>
+sed -i '' '/<\/head>/i\
+<link rel="stylesheet" href="css/stylesheet.css">\
+' $FILENAME_DEV
+
+# remove hardlinked css
+sed -i '' '/stylesheet.*designs.*.css/d' $FILENAME_DEV
+
+# remove hardlinked js
+sed -i '' '/script.*designs.*.js/d' $FILENAME_DEV
+
+# add theme js right before </body>
+sed -i '' '/<\/body>/i\
+<script src="js/site.min.js" type="text/javascript"></script>\
+' $FILENAME_DEV
+##################################################################
+

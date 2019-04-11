@@ -25,7 +25,7 @@ set laststatus=2              " always show airline
 set wildmenu                  " visual autocomplete for command menu
 " set wildcharm=<TAB>           " auto completetion hotkey
 " set lazyredraw                " redraw only when we need to
-set list                      " show invisible characters
+" set list                      " show invisible characters
 set listchars=tab:→\ ,trail:⋅ " list chars
 set fillchars=vert:│          " set vert split character to taller line
 set clipboard=unnamed         " Share Mac clipboard
@@ -70,7 +70,7 @@ let g:ycm_log_level = 'debug'
 let g:ycm_key_list_select_completion = ['<F3>']
 
 
-	"YCM language scrips
+ "YCM language scrips
  autocmd FileType python set omnifunc=pythoncomplete#Complete
  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -78,16 +78,6 @@ let g:ycm_key_list_select_completion = ['<F3>']
  autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
  autocmd FileType c set omnifunc=ccomplete#Complete
-
-	" omnifuncs for deplete
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
 
 " =============================================================================
 "  Vim-Plug

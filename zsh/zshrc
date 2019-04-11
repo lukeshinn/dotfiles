@@ -18,8 +18,7 @@ export FED_DOTFILES=$HOME/Repos/fed-framework/fed_dotfiles
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
 
 # FED Framework
-export PATH="$HOME/Repos/fed-framework/bin:$PATH"
-
+export PATH="$HOME/Repos/fed-bin:$PATH"
 
 # ==================================================
 #/  git completion  
@@ -99,6 +98,12 @@ export NVM_DIR="$HOME/.nvm"
 # ==================================================
 #/  shell aliases 
 # ==================================================
+
+alias gitline='/usr/local/bin/gitline.sh'
+
+alias gl='/usr/local/bin/gitline.sh'
+
+alias pullthatshit="cd ~/Repos/fdp-devops && git checkout master && git pull origin master && cd ./code && find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
 
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";

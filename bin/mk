@@ -1,0 +1,174 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+import tempfile
+import ConfigParser
+import argparse
+
+
+example_configuration_file = """
+[Neovim]
+cmds = es
+split = horizontal
+height = 35
+[Gulp]
+cmds = gulp
+split = vertical
+width = -20
+[Git]
+cmds =
+  clear
+  git branch -a
+  git status
+"""
+
+
+ProgName="mk"
+ProgVersion="0.1.0"
+
+
+applescript_template = '''
+tell application "iTerm2"
+    set myterm to (current window)
+    %s
+end tell
+return
+'''
+
+def create_panes(config,path):
+    index = 0
+    panes_str = ''
+    sections = config.sections()
+
+
+    for section in sections:
+        current_section = section
+        cmds = []
+        split = None
+
+        # setup previous section
+        if index == 0:
+            prev_section = None
+        else:
+            prev_section = sections[index - 1]
+
+        # setup previous section
+        if index == len(sections) - 1:
+            next_section = None
+        else:
+            next_section = sections[index + 1]
+
+        # commands
+        if config.has_option(section, 'cmds'):
+            cmds = config.get(section, 'cmds')
+            cmds = [cmd for cmd in cmds.split('\n') if cmd]
+
+        # split, height, width
+        if config.has_option(section, 'split'):
+            split = config.get(section, 'split')
+
+        if index == 0:
+            panes_str += 'set %s to (current session) of myterm\n\n' % current_section
+
+        if index < len(sections) - 1:
+            panes_str += '    tell %s to set %s to (split %s with same profile)\n' % (current_section, next_section, ("horizontally" if split and split.startswith('h') else "vertically"))
+
+        if path:
+            panes_str += '    tell %s to (write text "cd %s")\n' % (current_section, path)
+
+        # send commands to named pane
+        panes_str += send_commands(current_section, cmds)
+
+        index += 1
+
+    # do the resizing after spliting all the panes
+    for section in sections:
+        current_section = section
+        height = None
+        width = None
+        # resize panes
+        if config.has_option(section, 'height'):
+            height = config.get(section, 'height')
+            panes_str += '    select %s' % current_section
+            panes_str += send_keycode("height", height)
+
+        # resize panes
+        if config.has_option(section, 'width'):
+            width = config.get(section, 'width')
+            panes_str += '    select %s' % current_section
+            panes_str += send_keycode("width", width)
+
+    return applescript_template % panes_str
+
+
+def send_keycode(plane,amount):
+    amount = int(amount)
+    if plane == "height":
+        if amount >= 0:
+            key_code = 125
+        else:
+            key_code = 126
+    elif plane == "width":
+        if amount >= 0:
+            key_code = 124
+        else:
+            key_code = 123
+
+    key_press_code = '''
+    tell application "System Events"
+        repeat %s times
+            tell application "iTerm" to activate
+            tell application "System Events" to key code %s using {command down, control down}
+        end repeat
+    end tell\n\n''' % (abs(int(amount)), key_code)
+
+    return key_press_code
+
+
+def send_commands(name, cmds):
+    cmd_str = ''
+    for cmd in cmds:
+        cmd_str += '    tell %s to (write text "%s")\n' % (name,cmd)
+    return cmd_str
+
+
+# Create temporary Apple script file and launch it.
+def launch(conf_file,path):
+    config = ConfigParser.ConfigParser()
+    config.read(conf_file)
+    body = create_panes(config,path)
+    print(body)
+
+#     temp = tempfile.NamedTemporaryFile(delete=False)
+    # temp.write(body)
+    # temp.close()
+    # cmd = "osascript {0}".format(temp.name)
+    # subprocess.call(cmd, shell=True)
+    # os.unlink(temp.name)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Make panes in iTerm.')
+    parser.add_argument(
+            'config', nargs='?', help='name of the layout config in ~/.config/mk/ directory (e.g. config=develop will uses ~/.config/mk/develop.conf)', default='default')
+    parser.add_argument(
+            'path', nargs='?', help='path to dir to open pane in',default=os.getcwd())
+    parser.add_argument('-v','--version', action='version', version='%s' % (ProgVersion))
+    args = parser.parse_args()
+
+    config_path = os.path.expanduser('~/.config/mk/{}.conf'.format(args.config))
+    path = os.path.expanduser(args.path)
+
+    if not os.path.exists(config_path):
+        print("No config file at {0}".format(config_path))
+        sys.exit(0)
+
+    launch(config_path,path)
+
+
+if __name__ == '__main__':
+    main()
+
+# vim: tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent
