@@ -23,7 +23,7 @@ set mouse=a                   " enable mouse for scrolling
 set showcmd                   " show current command in bottom right
 set laststatus=2              " always show airline
 set wildmenu                  " visual autocomplete for command menu
-" set wildcharm=<TAB>           " auto completetion hotkey
+set wildcharm=<TAB>           " auto completetion hotkey
 " set lazyredraw                " redraw only when we need to
 " set list                      " show invisible characters
 set listchars=tab:→\ ,trail:⋅ " list chars
@@ -48,8 +48,40 @@ function! PrettyDiffer()
   silent :!prettydiff %
 endfunction
 
+let g:indentLine_setColors = 0
+
+"https://medium.com/@khamer/writing-php-and-js-with-vim-in-2017-f58e4a5738ae
+"recommendations
+set number ignorecase smartcase undofile spell list hlsearch incsearch lazyredraw
+set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
+set linebreak showbreak=↪\  breakindent breakindentopt=shift:-2
+set formatoptions+=nj
+let g:PHP_outdentphpescape = 0
+
+
 " =============================================================================
-"  Nerd Tree Settings 
+" Deoplete
+"==============================================================================
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_yarp = 1
+"inoremap <expr><tab> pumvisible() ? "\<c-p>" : "\<tab>"
+inoremap <expr><s-tab> pumvisible() ? "\<c-n>" : "\<s-tab>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" =============================================================================
+" ALE
+"==============================================================================
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '⚑'
+let g:ale_sign_warning = '⚐'
+
+" =============================================================================
+" Polyglot
+"==============================================================================
+let g:vim_markdown_conceal = 0
+
+" =============================================================================
+"  Nerd Tree Settings
 "==============================================================================
 autocmd BufEnter * lcd %:p:h
 let loaded_netrwPlugin = 1
@@ -57,27 +89,6 @@ let NERDTreeQuitOnOpen=1
 autocmd vimenter * NERDTree   " load NERDtree on open
 " set autochdir                 " open window in same path as NT
 
-" =============================================================================
-"  Auto Completion
-"==============================================================================
-
-set pumheight =8		" number of completions shown
-let g:ycm_min_num_of_chars_for_completion = 2 " you complete me settings
-let g:ycm_auto_trigger = 1
-let g:ycm_keep_logfiles = 1
-let g:ycm_log_level = 'debug'
-"let g:ycm_key_invoke_completion = '<leader>' 
-let g:ycm_key_list_select_completion = ['<F3>']
-
-
- "YCM language scrips
- autocmd FileType python set omnifunc=pythoncomplete#Complete
- autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
- autocmd FileType css set omnifunc=csscomplete#CompleteCSS
- autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
- autocmd FileType php set omnifunc=phpcomplete#CompletePHP
- autocmd FileType c set omnifunc=ccomplete#Complete
 
 " =============================================================================
 "  Vim-Plug
@@ -87,35 +98,32 @@ let g:ycm_key_list_select_completion = ['<F3>']
 call plug#begin('~/.vim/plugged')
 
 " commenter plugin that uses leader
-Plug 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdcommenter'
 
 " Snippets
-Plug 'garbas/vim-snipmate'   
+Plug 'garbas/vim-snipmate'
 
 "snipmate dependencies
-Plug 'MarcWeber/vim-addon-mw-utils' 
+Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Adds end curleys and brackets
-Plug 'valloric/matchtagalways' 
+Plug 'valloric/matchtagalways'
 
 " adds bottom information bar
-Plug 'bling/vim-airline'	
+Plug 'bling/vim-airline'
 
 " Pair brackets and quotes
-Plug 'jiangmiao/auto-pairs'	
-
-" auto completion dropdowns 
-Plug 'valloric/youcompleteme'	
+Plug 'jiangmiao/auto-pairs'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Color-schemes
-Plug 'flazz/vim-colorschemes' 
+Plug 'flazz/vim-colorschemes'
 
 " show search position among all results
 Plug 'google/vim-searchindex'
@@ -126,8 +134,28 @@ Plug 'lumiliet/vim-twig'
 " Time Tracker
 Plug 'wakatime/vim-wakatime'
 
-" surround selection with elements 
+" surround selection with elements
 Plug 'tpope/vim-surround'
+
+Plug '2072/PHP-Indenting-for-VIm'    " PHP indent script
+"Plug 'chrisbra/Colorizer'            " colorize colors
+"Plug 'chriskempson/base16-vim'       " high quality colorschemes
+Plug 'mhinz/vim-signify'             " show VCS changes
+Plug 'sheerun/vim-polyglot'          " newer language support
+Plug 'w0rp/ale'                      " realtime linting
+ "Code Analysis and Completion
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+" deoplete dependencies
+" pip3 install --user pynvim
+Plug 'Shougo/deoplete.nvim'          " async completion
+Plug 'roxma/nvim-yarp'               " deoplete dependency
+Plug 'roxma/vim-hug-neovim-rpc'      " deoplete dependency
+
+ "Other Features
+Plug 'mileszs/ack.vim'               " ack/rg support
+Plug 'mattn/emmet-vim'               " emmet support
 
 " Initialize plugin system
 call plug#end()
@@ -179,14 +207,16 @@ nnoremap <C-H> <C-W><C-H>
 " Display current file in the NERDTree ont the left
 nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
 
-" map f5 to toggle NERDtree
-nnoremap <leader>nt :NERDTreeToggle %<CR> 
+" map toggle NERDtree
+nnoremap <leader>nt :NERDTreeToggle %<CR>
 
 " redraw becasue prettydiff function is broken
 nnoremap <leader>rd :redraw! <CR>
 
 " clear search selection
-nnoremap <leader><esc> :noh<cr> 
+nnoremap <leader><esc> :noh<cr>
 
+" auto indent
+nnoremap <leader>kd gg=G
 " run savesite in current dir
 "nmap <silent> <leader>k :silent !savesite<cr>
