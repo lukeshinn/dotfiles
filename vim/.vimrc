@@ -34,9 +34,9 @@ set omnifunc=syntaxcomplete#Complete
 set ignorecase " ignore case in search patterns
 set smartcase       " override the 'ignorecase' option if the search pattern contains upper case characters
 
-set tabstop=4             " number of visual spaces per TAB
-set shiftwidth=2          " number of spaces to use for indent and unindent
-set expandtab             " tabs are spaces
+"set tabstop=4             " number of visual spaces per TAB
+"set shiftwidth=2          " number of spaces to use for indent and unindent
+"set expandtab             " tabs are spaces
 
 "search plugin settings
 set incsearch  " search as characters are entered
@@ -46,19 +46,18 @@ set hlsearch   " highlight matches
 set updatetime=750
 au CursorHold,FocusGained,BufEnter * checktime
 
-" prettydiff current file
+" formatting options
+set formatoptions+=nj
+let g:PHP_outdentphpescape = 0
+
+
+" =============================================================================
+" PrettyDiff 
+"==============================================================================
 command! PrettyDiff call PrettyDiffer()
 function! PrettyDiffer()
   silent :!prettydiff %
 endfunction
-
-"https://medium.com/@khamer/writing-php-and-js-with-vim-in-2017-f58e4a5738ae
-"recommendations
-set number ignorecase smartcase undofile spell list hlsearch incsearch lazyredraw
-"set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
-set linebreak showbreak=↪\  breakindent breakindentopt=shift:-2
-set formatoptions+=nj
-let g:PHP_outdentphpescape = 0
 
 
 " =============================================================================
@@ -70,6 +69,7 @@ let g:deoplete#enable_yarp = 1
 inoremap <expr><s-tab> pumvisible() ? "\<c-n>" : "\<s-tab>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+
 " =============================================================================
 " ALE
 "==============================================================================
@@ -77,10 +77,12 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '⚑'
 let g:ale_sign_warning = '⚐'
 
+
 " =============================================================================
 " Polyglot
 "==============================================================================
 let g:vim_markdown_conceal = 0
+
 
 " =============================================================================
 "  Nerd Tree Settings
@@ -165,15 +167,13 @@ call plug#end()
 " =============================================================================
 "  Colors / Misc
 "==============================================================================
-
 colorscheme gruvbox
 set background=dark
+
 
 " =============================================================================
 "  Leader Keybinds
 "==============================================================================
-
-" set a map leader for more key combos
 let mapleader =  ','
 
 " open v split
@@ -218,8 +218,6 @@ nnoremap <leader>rd :redraw! <CR>
 " clear search selection
 nnoremap <leader><esc> :noh<cr>
 
-" auto indent
-nnoremap <leader>kd gg=G
-
 " run savesite in current dir
 nmap <silent> <leader>f :silent !fzf<cr>
+
