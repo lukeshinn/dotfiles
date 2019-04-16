@@ -34,9 +34,9 @@ set omnifunc=syntaxcomplete#Complete
 set ignorecase " ignore case in search patterns
 set smartcase       " override the 'ignorecase' option if the search pattern contains upper case characters
 
-"set tabstop=4             " number of visual spaces per TAB
-"set shiftwidth=2          " number of spaces to use for indent and unindent
-"set expandtab             " tabs are spaces
+set tabstop=4             " number of visual spaces per TAB
+set shiftwidth=2          " number of spaces to use for indent and unindent
+set expandtab             " tabs are spaces
 
 "search plugin settings
 set incsearch  " search as characters are entered
