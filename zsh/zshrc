@@ -189,3 +189,5 @@ alias git brd="git branch -D"
 #complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -22,7 +22,6 @@ try
     write text "es"
     tell application "System Events" to key code 30 using {command down}
     set name to "GULP:"
-    write text "gup"
     tell application "System Events" to key code 30 using {command down}
     set name to "GIT:"
     write text "clr"

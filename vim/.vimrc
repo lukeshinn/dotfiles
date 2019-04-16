@@ -34,6 +34,10 @@ set omnifunc=syntaxcomplete#Complete
 set ignorecase " ignore case in search patterns
 set smartcase       " override the 'ignorecase' option if the search pattern contains upper case characters
 
+set tabstop=4             " number of visual spaces per TAB
+set shiftwidth=2          " number of spaces to use for indent and unindent
+set expandtab             " tabs are spaces
+
 "search plugin settings
 set incsearch  " search as characters are entered
 set hlsearch   " highlight matches
@@ -48,12 +52,10 @@ function! PrettyDiffer()
   silent :!prettydiff %
 endfunction
 
-let g:indentLine_setColors = 0
-
 "https://medium.com/@khamer/writing-php-and-js-with-vim-in-2017-f58e4a5738ae
 "recommendations
 set number ignorecase smartcase undofile spell list hlsearch incsearch lazyredraw
-set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
+"set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
 set linebreak showbreak=↪\  breakindent breakindentopt=shift:-2
 set formatoptions+=nj
 let g:PHP_outdentphpescape = 0
@@ -137,25 +139,25 @@ Plug 'wakatime/vim-wakatime'
 " surround selection with elements
 Plug 'tpope/vim-surround'
 
-Plug '2072/PHP-Indenting-for-VIm'    " PHP indent script
-"Plug 'chrisbra/Colorizer'            " colorize colors
-"Plug 'chriskempson/base16-vim'       " high quality colorschemes
-Plug 'mhinz/vim-signify'             " show VCS changes
-Plug 'sheerun/vim-polyglot'          " newer language support
-Plug 'w0rp/ale'                      " realtime linting
- "Code Analysis and Completion
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" PHP indent script
+Plug '2072/PHP-Indenting-for-VIm'    
+
+" show VCS changes
+Plug 'mhinz/vim-signify'             
+
+" newer language support
+Plug 'sheerun/vim-polyglot'          
+
+" realtime linting
+Plug 'w0rp/ale'                      
 
 " deoplete dependencies
-" pip3 install --user pynvim
 Plug 'Shougo/deoplete.nvim'          " async completion
 Plug 'roxma/nvim-yarp'               " deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'      " deoplete dependency
 
- "Other Features
-Plug 'mileszs/ack.vim'               " ack/rg support
-Plug 'mattn/emmet-vim'               " emmet support
+" emmet html builder support
+Plug 'mattn/emmet-vim'               
 
 " Initialize plugin system
 call plug#end()
@@ -218,5 +220,6 @@ nnoremap <leader><esc> :noh<cr>
 
 " auto indent
 nnoremap <leader>kd gg=G
+
 " run savesite in current dir
-"nmap <silent> <leader>k :silent !savesite<cr>
+nmap <silent> <leader>f :silent !fzf<cr>
