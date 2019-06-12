@@ -15,13 +15,14 @@ try
     delay 1
     tell application "System Events" to keystroke "d" using command down
     tell application "System Events" to key code 30 using {command down}
-    repeat 35 times
+    repeat 33 times
       tell application "System Events" to key code 125 using {command down, control down}
     end repeat
     set name to "NVIM:"
     write text "es"
     tell application "System Events" to key code 30 using {command down}
     set name to "GULP:"
+    write text "npm start"
     tell application "System Events" to key code 30 using {command down}
     set name to "GIT:"
     write text "clr"

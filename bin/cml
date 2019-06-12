@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for f in $(find . -name "${1:-*.scss}" -type f); do
+  # collapse muliples blank lines into one
+  cat -s "$f" | sponge "$f"
+  # remove blank line at eof
+  sed -i '' '${/^$/d;}' "$f"
+  # remove space at end of line
+  sed -i '' 's/[[:blank:]]*$//' "$f"
+done;

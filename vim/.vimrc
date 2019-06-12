@@ -1,6 +1,5 @@
 " Luke Shinn vim settings
 
-
 " =============================================================================
 "  General Settings
 "==============================================================================
@@ -52,7 +51,7 @@ let g:PHP_outdentphpescape = 0
 
 
 " =============================================================================
-" PrettyDiff 
+" PrettyDiff
 "==============================================================================
 command! PrettyDiff call PrettyDiffer()
 function! PrettyDiffer()
@@ -142,16 +141,16 @@ Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
 
 " PHP indent script
-Plug '2072/PHP-Indenting-for-VIm'    
+Plug '2072/PHP-Indenting-for-VIm'
 
 " show VCS changes
-Plug 'mhinz/vim-signify'             
+Plug 'mhinz/vim-signify'
 
 " newer language support
-Plug 'sheerun/vim-polyglot'          
+Plug 'sheerun/vim-polyglot'
 
 " realtime linting
-Plug 'w0rp/ale'                      
+Plug 'w0rp/ale'
 
 " deoplete dependencies
 Plug 'Shougo/deoplete.nvim'          " async completion
@@ -159,10 +158,20 @@ Plug 'roxma/nvim-yarp'               " deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'      " deoplete dependency
 
 " emmet html builder support
-Plug 'mattn/emmet-vim'               
+Plug 'mattn/emmet-vim'
 
 " Initialize plugin system
 call plug#end()
+
+" ale settings
+let g:ale_fixers = {
+      \ '*': [
+      \ 'remove_trailing_lines',
+      \ 'trim_whitespace',
+      \ ]
+      \ }
+let g:ale_fix_on_save = 1
+
 
 " =============================================================================
 "  Colors / Misc
@@ -207,7 +216,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Display current file in the NERDTree ont the left
-nmap <silent> <leader>n :NERDTreeFind<CR><c-w>=
+nmap <silent> <leader>nf :NERDTreeFind<CR><c-w>=
 
 " map toggle NERDtree
 nnoremap <leader>nt :NERDTreeToggle %<CR>
@@ -221,3 +230,9 @@ nnoremap <leader><esc> :noh<cr>
 " run savesite in current dir
 nmap <silent> <leader>f :silent !fzf<cr>
 
+" run command in terminal session
+nnoremap <leader>c :! git ac "
+
+" find ale errors
+"nnoremap <leader>f :ALENext<CR>
+"nnoremap <leader>v :ALEPrevious<CR>
