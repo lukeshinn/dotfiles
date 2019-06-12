@@ -2,7 +2,7 @@ source ~/.prompt.zsh
 
 
 # ==================================================
-#/  Asthetics 
+#/  Asthetics
 # ==================================================
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
@@ -12,7 +12,7 @@ export PS1="\[\e[0;36m\]\W\[\e[0;32m\]\$(__git_ps1)\[\e[0;37m\]\$ \[\e[0m\]>"
 
 
 # ==================================================
-#/ Firespring Settings 
+#/ Firespring Settings
 # ==================================================
 export FED_DOTFILES=$HOME/Repos/fed-framework/fed_dotfiles
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
@@ -21,7 +21,7 @@ export PATH="./bin:/usr/local/bin:/usr/local/sbin:$FED_DOTFILES/bin:$PATH"
 export PATH="$HOME/Repos/fed-bin:$PATH"
 
 # ==================================================
-#/  git completion  
+#/  git completion
 # ==================================================
 fpath=(~/.zsh $fpath)
 
@@ -37,7 +37,7 @@ compinit
 
 
 # ==================================================
-#/ MISC 
+#/ MISC
 # ==================================================
 # Move next only if `homebrew` is installed
 # https://gist.github.com/mischah/8149239
@@ -47,11 +47,10 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 
-
 # ==================================================
-#/ PATHS 
+#/ PATHS
 # ==================================================
-# laravel 
+# laravel
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # php
@@ -91,7 +90,7 @@ unsetopt complete_aliases
 
 
 # ==================================================
-#/  shell aliases 
+#/  shell aliases
 # ==================================================
 
 alias gitline='/usr/local/bin/gitline.sh'
@@ -125,14 +124,14 @@ alias git brd="git branch -D"
 
 
 # ==================================================
-#/  luke's reminder notes  
+#/  luke's reminder notes
 # ==================================================
 # xinput or synclient to adjust trackpad settings : synclient MaxTapTime=0
 # sysctl for kernel modification
 #
 
 # ==================================================
-#/  Misc  
+#/  Misc
 # ==================================================
 
 #bindkey '^[^[[D' backward-word
