@@ -233,6 +233,9 @@ nmap <silent> <leader>f :silent !fzf<cr>
 " run command in terminal session
 nnoremap <leader>c :! git ac "
 
+" delete empty lines
+noremap <leader>d :g/^$/d<cr>
+
 " find ale errors
 "nnoremap <leader>f :ALENext<CR>
 "nnoremap <leader>v :ALEPrevious<CR>

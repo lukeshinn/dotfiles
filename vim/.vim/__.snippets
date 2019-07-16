@@ -13,11 +13,15 @@ snippet nc
 
 snippet lc
 	//  ${1:attr1}
-	// ################
+	// #####################################
 snippet #c
 	## ============================
 	#  ${1:attr1}
 	## ============================
+snippet kc
+	// ##############################################################################
+	// ${1:attr1}
+	// ##############################################################################
 ## ============================
 #  Javascript
 ## ============================
@@ -75,6 +79,9 @@ snippet fc
 	display: flex;
 	justify-content: center;
 	align-items: center;
+snippet fbet
+	display: flex;
+	justify-content: space-between;
 snippet alink
 	a,a:link,a:visited
 snippet :after
@@ -120,3 +127,9 @@ snippet notlast
 	:not(:last-of-type)
 snippet notfirst
 	:not(:first-of-type)
+snippet hoverinherit
+	color: inherit;
+
+	&:hover {
+	  color: inherit;
+	}

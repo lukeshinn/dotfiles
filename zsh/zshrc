@@ -120,9 +120,6 @@ alias git cob="git checkout branch"
 
 alias git brd="git branch -D"
 
-alias git brd="git branch -D"
-
-
 # ==================================================
 #/  luke's reminder notes
 # ==================================================
