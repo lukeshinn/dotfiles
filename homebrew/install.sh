@@ -1,24 +1,77 @@
 #!/bin/sh
 #
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
-
 # Check for Homebrew
 if test ! $(which brew)
 then
   echo "  Installing Homebrew for you."
-
-  # Install the correct homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi
-
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-exit 0
+brew tap caskroom/cask
+brew install brew-cask
+brew tap caskroom/versions
+brew tap caskroom/fonts
+
+
+
+packages=(
+# git
+git
+# vim & neovim
+vim
+neovim/neovim/neovim
+# languages
+ruby
+go
+# docker
+docker
+docker-machine
+docker-compose
+# utilities
+z
+fzf
+ranger
+htop
+wget
+ack
+coreutils
+jq
+parallel
+terminal-notifier
+# fun
+archey
+figlet
+)
+
+apps=(
+# productivity
+docker
+slack
+discord
+dropbox
+virtualbox
+1password
+iterm2
+cyberduck
+virtualbox
+sublime-text
+# utilities
+# independent trackpad and mouse scroll direction
+scroll-reverser
+xscope
+# text expansion
+atext
+# browsers
+firefox
+google-chrome
+# music
+spotify
+# fonts
+font-hack-nerd-font
+)
+
+echo "==> Installing packages"
+brew install "${packages[@]}"
+
+echo "==> Installing apps"
+brew cask install "${apps[@]}"

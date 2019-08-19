@@ -142,24 +142,11 @@ prompt_virtualenv() {
   fi
 }
 
-# show current dir tags
-prompt_tags() {
-  if [[ $(dtags list) ]]; then
-    color=cyan
-    color=magenta
-    CURRENT_BG='NONE'
-    prompt_segment $color $PRIMARY_FG
-    print -n " $TAG "$(dtags list)" "
-  else
-    CURRENT_BG='NONE'
-  fi
-}
-
 ## Main prompt
 prompt_agnoster_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
-  prompt_tags
+  #prompt_tags
   CURRENT_BG='NONE'
   prompt_git
   CURRENT_BG='NONE'
@@ -191,5 +178,3 @@ prompt_agnoster_setup() {
 }
 
 prompt_agnoster_setup "$@"
-
-
