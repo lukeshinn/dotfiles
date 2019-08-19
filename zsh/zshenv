@@ -1,6 +1,0 @@
-function prettydiff() {
-  ~/Projects/prettydiff/bin/prettydiff source:"$1" mode:"beautify" readmethod:"file" output:"$1" commline:"true" cssinsertlines:"true" insize:"2" preserve:"0" wrap:"0" braceline:"true" methodchain:"chain" summaryonly:"true" tagmerge:"false" spaceclose:"true" noleadzero:"true" html:"true" styleguide:"grunt" space:"false" $2
-}
-
-
-alias cdn="cd ~/Repos/fdp-devops/code/cdn/designs"

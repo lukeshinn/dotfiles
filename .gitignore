@@ -1,4 +1,4 @@
-vim/.vim/plugged/
+vim.symlink/.vim/plugged/
 ./DS_Store
 .DS_Store
 

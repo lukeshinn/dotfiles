@@ -1,0 +1,5 @@
+[user]
+        name = lukeshinn
+        email = luke.shinn.efp@gmail.com
+[credential]
+        helper = osxkeychain

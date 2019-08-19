@@ -13,5 +13,4 @@
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
-# exec "$EDITOR" -a "${1:-.}"
 exec "$EDITOR" "${1:-.}"
