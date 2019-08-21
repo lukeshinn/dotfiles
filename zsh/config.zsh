@@ -35,6 +35,19 @@ unsetopt complete_aliases
 # kill the lag
 export KEYTIMEOUT=1
 
+
+###### NOTES ######
+# article for setting up ternimal fonts
+# https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+
+######### START:OH-MY-ZSH #########
+# place this in .zshrc after installing oh-my-zsh
+#
+#
 # zsh config examples (current: haccks)
 # https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -71,18 +84,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-alias suroot='sudo -E -s'
 
 # source ~/.bash_profile
-
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile;
 fi
 
-
-###### NOTES ######
-# article for setting up ternimal fonts
-# https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+alias suroot='sudo -E -s'
+######### END:OH-MY-ZSH #########

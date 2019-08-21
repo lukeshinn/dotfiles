@@ -23,6 +23,7 @@ neovim/neovim/neovim
 # languages
 ruby
 go
+node
 # docker
 docker
 docker-machine
@@ -74,4 +75,4 @@ echo "==> Installing packages"
 brew install "${packages[@]}"
 
 echo "==> Installing apps"
-brew cask install "${apps[@]}"
+#brew cask install "${apps[@]}"
