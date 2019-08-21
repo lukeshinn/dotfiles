@@ -8,4 +8,5 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
   alias cdn='cd ~/Repos/fdp-devops/code/cdn'
+  alias newtest='echo test'
 fi
