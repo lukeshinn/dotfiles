@@ -4,12 +4,28 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
-[color]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	s = status -s
+	cob = checkout -b
+	brd = branch -d
+	brD = branch -D
+	cm = commit -m
+	com = checkout master
+	pom = pull origin master
+	comp = !git checkout master && git pull origin master
+	ac = !git add -A && git commit -m
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	lrb = ls-remote --heads origin
+	oops = reset head~1
+	f = !git fetch && git branch -a
+	fp = !git fetch --prune && git branch -a
+	rso = remote show origin
+	pup = !git push --set-upstream origin `git symbolic-ref --short HEAD`
+	diffw = diff --word-diff=color[color]
         diff = auto
         status = auto
         branch = auto
