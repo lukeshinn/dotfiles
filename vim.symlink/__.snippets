@@ -43,6 +43,90 @@ snippet ct
 snippet ifexists
 	if ($('${1:attr1}').length > 0) {
 	}
+snippet es6starter
+	{
+	const DOM = {};
+	DOM.item = document.querySelectorAll('item');
+	var imagesLoaded = require('imagesloaded');
+
+	const init = () => {
+	    imagesLoaded(document.body, {
+	        background: true
+	    }, () => document.body.classList.remove('loading'));
+		DOM.item.addEventListener('click', func);
+	};
+
+	const func = (i) => {
+	    i.parentNode.classList.add('toggle-nav-font');
+	};
+
+	init();
+	};
+snippet jqueryplugin
+	(function ($, window, document, undefined) {
+	  var pluginName = 'shinnSlider';
+
+	  function ShinnSlider (el, options, sel) {
+	    this.$el = $(el);
+	    this.$sel = sel;
+
+	    var defaults = {
+	      activeClass: 'active-news-article',
+	      animationSpeed: 750,
+	      debug: false
+	    };
+
+	    this.options = $.extend({}, defaults, options);
+
+	    this.init();
+	  }
+
+	  ShinnSlider.prototype = {
+
+	    // Initialize children and events
+	    init: function () {
+	      var plugin = this;
+
+	      plugin.container = plugin.$el.find('ul');
+	      plugin.leftButton = plugin.$el.find('.slider-nav--prev');
+	      plugin.rightButton = plugin.$el.find('.slider-nav--next');
+	      plugin.liswidth = 0;
+
+	      plugin.initEvents();
+	    },
+
+	    // Events here
+	    initEvents: function () {
+	      var plugin = this;
+	      console.log(plugin);
+
+	      $(plugin.container).on('scroll load', function () {
+	        plugin.updatePositions();
+	      });
+	    },
+
+	    prevSlide: function (e) {
+	      var plugin = this;
+	    },
+
+	    checkArrows: function () {
+	      var plugin = this;
+	    },
+
+	    updatePositions: function () {
+	    }
+
+	  };
+
+	  $.fn[pluginName] = function (options) {
+	    var sel = this.selector;
+	    return this.each(function () {
+	      if (!$.data(this, pluginName)) {
+	        $.data(this, pluginName, new ShinnSlider(this, options, sel));
+	      }
+	    });
+	  };
+	})(jQuery, window, document);
 ## ============================
 #  PHP
 ## ============================
@@ -120,3 +204,95 @@ snippet notlast
 	:not(:last-of-type)
 snippet notfirst
 	:not(:first-of-type)
+snippet inheritcolor
+	color: inherit;
+	&:hover {
+	color: inherit;
+	}
+snippet sdown
+	@include small-down {
+	${1:attr1}
+	}
+snippet mdown
+	@include medium-down {
+	${1:attr1}
+	}
+snippet ldown
+	@include large-down {
+	${1:attr1}
+	}
+snippet allinputs
+	input[type=number],
+	input[type=text],
+	input[type=password],
+	input[type=date],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=month],
+	input[type=week],
+	input[type=email],
+	input[type=tel],
+	input[type=time],
+	input[type=url],
+	input[type=color],
+	input[type=search]
+## ============================
+# Firespring
+## ============================
+snippet collectr
+	.collection--list {
+	 margin: 0;
+	 ul {
+	   list-style: none;
+	   margin: 0;
+	   padding: 0;
+	 }
+	 li {}
+	 a {}
+
+	 .collection-item__content {}
+
+	 .collection-item-label {}
+	 .collection-item-description {}
+	 .collection-item-image {}
+
+	 // FDP-10889 override
+	 .collection-item-image.image {
+	   max-width: 100% !important;
+	 }
+snippet spotlight
+	 .spotlight {
+
+	 }
+
+	 .spotlight--list ul {
+
+	 }
+
+	 .slide {
+
+	 }
+
+	 .spotlight-overlay {
+
+	 }
+
+	 .spotlight-image {
+
+	 }
+
+	 .spotlight-text {
+
+	 }
+
+	 .spotlight-text__title {
+
+	 }
+
+	 .spotlight-text__content {
+
+	 }
+
+	 .spotlight-button {
+
+	 }
