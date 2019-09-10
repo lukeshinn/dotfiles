@@ -9,4 +9,6 @@ then
   alias la='gls -A --color'
   alias cdn='cd ~/Repos/fdp-devops/code/cdn'
   alias newtest='echo test'
+  alias gitline='/usr/local/bin/gitline.sh'
+  alias gl='/usr/local/bin/gitline.sh'
 fi
