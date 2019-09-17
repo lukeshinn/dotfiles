@@ -2,7 +2,7 @@
 
 #EG - editor gulp - open editor, create iterm layout, start gulp
 if command -v figlet >/dev/null 2>&1; then
-figlet EG
+figlet GLHF
 fi
 
 # create new tab and split it
