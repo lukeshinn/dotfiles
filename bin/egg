@@ -1,33 +1,108 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #EG - editor gulp - open editor, create iterm layout, start gulp
-if command -v figlet >/dev/null 2>&1; then
-figlet GLHF
-fi
+ProgName="$(basename $0)"
+ProgVersion="1.1.0"
 
-# create new tab and split it
-IFS='%'
-osascript -e '
-tell application "iTerm2"
-try
-  tell current session of current window
-    tell application "System Events" to keystroke "D" using command down
-    delay 1
-    tell application "System Events" to keystroke "d" using command down
-    tell application "System Events" to key code 30 using {command down}
-    repeat 33 times
-      tell application "System Events" to key code 125 using {command down, control down}
-    end repeat
-    set name to "NVIM:"
-    write text "es"
-    tell application "System Events" to key code 30 using {command down}
-    set name to "GULP:"
-    write text "npm start"
-    tell application "System Events" to key code 30 using {command down}
-    set name to "GIT:"
-    write text "clr"
-    tell application "System Events" to key code 30 using {command down}
-  end tell
-  end try
-end tell
-'
+sub_main(){
+  echo "$ProgName $ProgVersion"
+  WorkingDir=${1:-$PWD}
+  DefaultHeight=$((`tput lines` / 4))
+  HEIGHT=${2:-$DefaultHeight}
+
+  IFS='%'
+  osascript << EOF
+tell application "iTerm"
+    activate
+
+    set myterm to (current window)
+    tell myterm
+        activate
+
+        set vim_sesh to (current session)
+        tell vim_sesh to set starter_sesh to (split horizontally with same profile)
+        tell starter_sesh to set git_sesh to (split vertically with same profile)
+
+        tell application "System Events"
+            repeat "$HEIGHT" times
+                tell application "iTerm" to activate
+                tell application "System Events" to key code 125 using {command down, control down}
+              end repeat
+            end tell
+
+        tell vim_sesh to (write text "cd \"$WorkingDir\" && vim")
+        tell starter_sesh to (write text "cd \"$WorkingDir\" && npm start")
+        tell git_sesh to (write text "cd \"$WorkingDir\" && git status")
+
+      end tell
+    end tell
+EOF
+}
+
+sub_dev(){
+  echo "$ProgName dev $ProgVersion"
+  WorkingDir=${1:-$PWD}
+  DefaultHeight=$((`tput lines` / 3))
+  HEIGHT=${2:-$DefaultHeight}
+
+  IFS='%'
+  osascript << EOF
+tell application "iTerm"
+    activate
+
+    set myterm to (current window)
+    tell myterm
+        activate
+
+        set vim_sesh to (current session)
+        tell vim_sesh to set starter_sesh to (split horizontally with same profile)
+        tell starter_sesh to set vagrant_sesh to (split vertically with same profile)
+        tell vagrant_sesh to set git_sesh to (split vertically with same profile)
+
+        tell application "System Events"
+            repeat "$HEIGHT" times
+                tell application "iTerm" to activate
+                tell application "System Events" to key code 125 using {command down, control down}
+              end repeat
+            end tell
+
+        tell vim_sesh to (write text "cd \"$WorkingDir\" && vim")
+        tell starter_sesh to (write text "cd \"$WorkingDir\" && npm start")
+        tell vagrant_sesh to (write text "cd \"$WorkingDir\" && fragrant watch")
+        tell git_sesh to (write text "cd \"$WorkingDir\" && git status")
+
+      end tell
+    end tell
+EOF
+
+}
+
+sub_version(){
+  echo "$ProgName $ProgVersion"
+}
+
+sub_help(){
+  echo ""
+  echo "$ProgName $ProgVersion"
+  echo "Usage: $ProgName [path/to/directory/] [height]"
+  echo "    height - integer, number of times to move divider down for resizing pane"
+  echo "    path/to/directory - use the PWD environment variable if you'd like to use the current dir and set a height"
+  echo ""
+}
+
+subcommand=$1
+case $subcommand in
+  "-v" | "--version")
+    sub_version
+    ;;
+  "-h" | "--help")
+    sub_help
+    ;;
+  "d" | "dev")
+    shift
+    sub_dev $@
+    ;;
+  "" | *)
+    sub_main $@
+    ;;
+esac
