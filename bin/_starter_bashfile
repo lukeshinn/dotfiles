@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+#EG - editor gulp - open editor, create iterm layout, start gulp
+ProgName="$(basename $0)"
+ProgVersion="1.1.0"
+
+sub_main(){
+  echo "$ProgName $ProgVersion"
+  WorkingDir=${1:-$PWD}
+  DefaultHeight=$((`tput lines` / 4))
+  HEIGHT=${2:-$DefaultHeight}
+}
+
+sub_dev(){
+
+}
+
+sub_version(){
+  echo "$ProgName $ProgVersion"
+}
+
+sub_help(){
+  echo ""
+  echo "$ProgName $ProgVersion"
+  echo "Usage: $ProgName [path/to/directory/] [height]"
+  echo "    height - integer, number of times to move divider down for resizing pane"
+  echo ""
+}
+
+subcommand=$1
+case $subcommand in
+  "-v" | "--version")
+    sub_version
+    ;;
+  "-h" | "--help")
+    sub_help
+    ;;
+  "d" | "dev")
+    shift
+    sub_dev $@
+    ;;
+  "" | *)
+    sub_main $@
+    ;;
+esac
