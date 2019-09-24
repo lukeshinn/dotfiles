@@ -13,7 +13,11 @@ snippet nc
 
 snippet lc
 	//  ${1:attr1}
-	// ################
+	// ######################
+snippet bc
+	// ####################################
+	//  ${1:attr1}
+	// ####################################
 snippet #c
 	## ============================
 	#  ${1:attr1}
@@ -209,18 +213,7 @@ snippet inheritcolor
 	&:hover {
 	color: inherit;
 	}
-snippet sdown
-	@include small-down {
-	${1:attr1}
-	}
-snippet mdown
-	@include medium-down {
-	${1:attr1}
-	}
-snippet ldown
-	@include large-down {
-	${1:attr1}
-	}
+
 snippet allinputs
 	input[type=number],
 	input[type=text],
@@ -236,6 +229,43 @@ snippet allinputs
 	input[type=url],
 	input[type=color],
 	input[type=search]
+## ============================
+# Mixins
+## ============================
+snippet sdown
+	@include small-down {
+	${1:attr1}
+	}
+snippet mdown
+	@include medium-down {
+	${1:attr1}
+	}
+snippet ldown
+	@include large-down {
+	${1:attr1}
+	}
+snippet buttonmixin
+	@mixin button($color, $bg) {
+	  display: inline-block;
+	  padding: 18px 30px;
+	  color: $color;
+	  background: $bgcolor;
+	  border-radius: 4px;
+	  text-align: center;
+	  font-size: 20px;
+	  font-weight: bold;
+	  line-height: 24px;
+	  transition: all .3s ease;
+
+	  &:hover {
+	    background: $color;
+	    color: $bg;
+	  }
+
+	  @include small-down {
+	    padding: 15px 22px;
+	  }
+	}
 ## ============================
 # Bash
 ## ============================
