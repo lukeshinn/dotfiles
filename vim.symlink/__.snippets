@@ -207,7 +207,7 @@ snippet :nc
 snippet notlast
 	:not(:last-of-type)
 snippet notfirst
-	:not(:first-of-type)
+	not(:first-of-type)
 snippet inheritcolor
 	color: inherit;
 	&:hover {
@@ -375,3 +375,18 @@ snippet spotlight
 	 .spotlight-button {
 
 	 }
+snippet inlinemobileaccordion
+	&.nav__list--parent > a {
+	  display: inline-block;
+	  position: relative;
+
+	  .accordion_toggle {
+	    right: -40px;
+	    height: auto;
+
+	    &::after {
+	      content: "\f196";
+	      font-size: 12px;
+	    }
+	  }
+	}
