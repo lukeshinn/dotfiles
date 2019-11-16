@@ -36,9 +36,11 @@ There's a few special files in the hierarchy.
 
 Run this:
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 ```sh
 cd ~/.dotfiles
-script/bootstrap
+./install
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
@@ -51,4 +53,3 @@ which sets up a few paths that'll be different on your particular machine.
 defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
-
