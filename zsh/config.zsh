@@ -39,6 +39,10 @@ export KEYTIMEOUT=1
 ###### NOTES ######
 # article for setting up ternimal fonts
 # https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+# MesloLGLDZ Nerd Font
+# https://github.com/cekrem/dotfiles/blob/master/fonts/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+# Material
+# https://iterm2colorschemes.com/
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
