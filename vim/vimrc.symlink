@@ -245,5 +245,5 @@ nnoremap <leader>c :! git ac "
 noremap <leader>d :g/^$/d<cr>
 
 " find ale errors
-"nnoremap <leader>f :ALENext<CR>
-"nnoremap <leader>v :ALEPrevious<CR>
+nnoremap <leader>j :ALENext<CR>
+nnoremap <leader>m :ALEPrevious<CR>
