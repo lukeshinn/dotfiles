@@ -39,6 +39,39 @@ tell application "iTerm"
 EOF
 }
 
+sub_small(){
+  echo "$ProgName $ProgVersion"
+  WorkingDir=${1:-$PWD}
+  DefaultHeight=$((`tput lines` / 4))
+  HEIGHT=${2:-$DefaultHeight}
+
+  IFS='%'
+  osascript << EOF
+tell application "iTerm"
+    activate
+
+    set myterm to (current window)
+    tell myterm
+        activate
+
+        set vim_sesh to (current session)
+        tell vim_sesh to set starter_sesh to (split horizontally with same profile)
+
+        tell application "System Events"
+            repeat "$HEIGHT" times
+                tell application "iTerm" to activate
+                tell application "System Events" to key code 125 using {command down, control down}
+              end repeat
+            end tell
+
+        tell vim_sesh to (write text "cd \"$WorkingDir\" && vim")
+        tell starter_sesh to (write text "cd \"$WorkingDir\"")
+
+      end tell
+    end tell
+EOF
+}
+
 sub_dev(){
   echo "$ProgName dev $ProgVersion"
   WorkingDir=${1:-$PWD}
@@ -97,6 +130,10 @@ case $subcommand in
     ;;
   "-h" | "--help")
     sub_help
+    ;;
+  "s" | "small")
+    shift
+    sub_small $@
     ;;
   "d" | "dev")
     shift
