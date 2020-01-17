@@ -137,7 +137,7 @@ Plug 'google/vim-searchindex'
 Plug 'lumiliet/vim-twig'
 
 " Time Tracker
-Plug 'wakatime/vim-wakatime'
+"Plug 'wakatime/vim-wakatime'
 
 " surround selection with elements
 Plug 'tpope/vim-surround'
