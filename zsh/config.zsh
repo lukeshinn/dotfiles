@@ -37,9 +37,11 @@ export KEYTIMEOUT=1
 
 
 ###### NOTES ######
-# article for setting up ternimal fonts
+#### article for setting up ternimal fonts
 # https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
-# MesloLGLDZ Nerd Font
+# article for setting up zsh for the first time
+# https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/
+#### MesloLGLDZ Nerd Font
 # https://github.com/cekrem/dotfiles/blob/master/fonts/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 # Material
 # https://iterm2colorschemes.com/
