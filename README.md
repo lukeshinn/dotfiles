@@ -40,7 +40,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ```sh
 cd ~/.dotfiles
-./install
+./bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
