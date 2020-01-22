@@ -45,9 +45,9 @@ unset config_files
 #eval "$(pyenv init -)"
 
 # add zsh syntax highlighting
-if [[ -a ~/Repos/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]]
+if [[ -a ~/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]]
 then
-  source ~/Repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 ##### START: oh-my-zsh theme #####
@@ -80,8 +80,8 @@ plugins=(
   osx
   python
   composer
-  zsh-syntax-highlighting
-  zsh-autosuggestions
+  #zsh-syntax-highlighting
+  #zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
