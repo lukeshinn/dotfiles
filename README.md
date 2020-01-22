@@ -34,9 +34,10 @@ There's a few special files in the hierarchy.
 
 ## install
 
-Run this:
-
+Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+You may also need to clone the zsh-completion repo in the ~/repos folder
 
 ```sh
 cd ~/.dotfiles
