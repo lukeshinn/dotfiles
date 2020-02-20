@@ -61,8 +61,7 @@ function! PrettyDiffer()
 endfunction
 
 " =============================================================================
-" Deoplete
-"==============================================================================
+" Deoplete ==============================================================================
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_yarp = 1
 "inoremap <expr><tab> pumvisible() ? "\<c-p>" : "\<tab>"
@@ -185,6 +184,8 @@ Plug 'vim-python/python-syntax'
 " python indentation
 Plug 'Vimjas/vim-python-pep8-indent'
 
+Plug 'junegunn/vim-easy-align'
+
 " Initialize plugin system
 call plug#end()
 
@@ -259,11 +260,22 @@ nmap <silent> <leader>f :silent !fzf<cr>
 nnoremap <leader>c :! git ac "
 
 " delete empty lines
-noremap <leader>d :g/^$/d<cr>
+noremap <leader>dd :g/^$/d<cr>
 
 " find ale errors
 nnoremap <leader>j :ALENext<CR>
 nnoremap <leader>m :ALEPrevious<CR>
+
+" open and close current split pane into new tab
+nmap t% :tabedit %<CR>
+nmap td :tabclose<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+" https://github.com/junegunn/vim-easy-align
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " =============================================================================
 " VIM NOTES
