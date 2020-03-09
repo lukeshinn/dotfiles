@@ -34,10 +34,6 @@ There's a few special files in the hierarchy.
 
 ## install
 
-See the[system readme](../tree/master/system/aesthetic/readme.md) for things like fonts and colorschemes
-
-You may also need to clone the zsh-completion repo in the ~/repos folder
-
 ```sh
 cd ~/.dotfiles
 ./bootstrap
@@ -46,9 +42,11 @@ cd ~/.dotfiles
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
-The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
-which sets up a few paths that'll be different on your particular machine.
+See the [system readme](..blob/master/system/aesthetic/readme.md) for things like fonts and colorschemes
 
+You may also need to clone the zsh-completion repo in the ~/repos folder
+
+## Maintenence
 `dot` is a simple script that installs some dependencies, sets sane macOS
 defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
