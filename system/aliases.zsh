@@ -13,4 +13,4 @@ then
   alias gl=gitline
 fi
 
-alias hud="cd ~/Developer/"
+alias hudl="cd ~/Developer/"

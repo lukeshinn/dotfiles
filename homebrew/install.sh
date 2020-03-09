@@ -42,6 +42,7 @@ terminal-notifier
 # fun
 archey
 figlet
+the_silver_searcher
 )
 
 apps=(
