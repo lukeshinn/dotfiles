@@ -42,7 +42,7 @@ cd ~/.dotfiles
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
-See the [system readme](..blob/master/system/aesthetic/readme.md) for things like fonts and colorschemes
+See the [system readme](system/aesthetic/readme.md) for things like fonts and colorschemes
 
 You may also need to clone the zsh-completion repo in the ~/repos folder
 
