@@ -34,8 +34,7 @@ There's a few special files in the hierarchy.
 
 ## install
 
-Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+See the[system readme](../tree/master/system/aesthetic/readme.md) for things like fonts and colorschemes
 
 You may also need to clone the zsh-completion repo in the ~/repos folder
 

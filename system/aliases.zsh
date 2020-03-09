@@ -12,3 +12,5 @@ then
   alias gitline='/usr/local/bin/gitline.sh'
   alias gl=gitline
 fi
+
+alias hud="cd ~/Developer/"
