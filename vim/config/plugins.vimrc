@@ -73,5 +73,11 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'junegunn/vim-easy-align'
 
+" JSON Highlighting
+Plug 'elzr/vim-json'
+
+" JSON Formatting
+Plug 'vim-scripts/json-formatter.vim'
+
 " Initialize plugin system
 call plug#end()
