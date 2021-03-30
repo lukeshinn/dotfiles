@@ -9,11 +9,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdcommenter'
 
 " Snippets
-Plug 'garbas/vim-snipmate'
+" Plug 'garbas/vim-snipmate'
 
 "snipmate dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
 
 " Adds end curleys and brackets
 Plug 'valloric/matchtagalways'
@@ -37,7 +37,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'google/vim-searchindex'
 
 " twig syntax
-Plug 'lumiliet/vim-twig'
+" Plug 'lumiliet/vim-twig'
 
 " Time Tracker
 "Plug 'wakatime/vim-wakatime'
@@ -46,38 +46,38 @@ Plug 'lumiliet/vim-twig'
 Plug 'tpope/vim-surround'
 
 " PHP indent script
-Plug '2072/PHP-Indenting-for-VIm'
+" Plug '2072/PHP-Indenting-for-VIm'
 
 " show VCS changes
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 
 " newer language support
 Plug 'sheerun/vim-polyglot'
 
 " realtime linting
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " deoplete dependencies
-Plug 'Shougo/deoplete.nvim'          " async completion
-Plug 'roxma/nvim-yarp'               " deoplete dependency
-Plug 'roxma/vim-hug-neovim-rpc'      " deoplete dependency
+" Plug 'Shougo/deoplete.nvim'          " async completion
+" Plug 'roxma/nvim-yarp'               " deoplete dependency
+" Plug 'roxma/vim-hug-neovim-rpc'      " deoplete dependency
 
 " emmet html builder support
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " python syntax
-Plug 'vim-python/python-syntax'
+" Plug 'vim-python/python-syntax'
 
 " python indentation
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'junegunn/vim-easy-align'
 
 " JSON Highlighting
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 
 " JSON Formatting
-Plug 'vim-scripts/json-formatter.vim'
+" Plug 'vim-scripts/json-formatter.vim'
 
 " Initialize plugin system
 call plug#end()
