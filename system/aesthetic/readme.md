@@ -9,3 +9,6 @@ You will need to remove the .zshrc that is generated after running this and re-s
 
 #### Install ZSH Theme
 `git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
+
+## Gotchas
+You might need to change the $ZSH environment variable in the zshrc.symlink file
