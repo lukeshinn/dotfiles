@@ -25,6 +25,7 @@
 	fp = !git fetch --prune && git branch -a
 	rso = remote show origin
 	pup = !git push --set-upstream origin `git symbolic-ref --short HEAD`
+    nukebranch = !git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
 	diffw = diff --word-diff=color[color]
         diff = auto
         status = auto
@@ -51,3 +52,11 @@
 	helper = osxkeychain
 [pager]
 	branch = false
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Luke Shinn
+	email = luke.shinn.efp@gmail.com
