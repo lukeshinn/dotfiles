@@ -1,0 +1,23 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.fontFamily": "MesloLGLDZ Nerd Font Mono",
+  "editor.fontWeight": null,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.autoIndent": "full",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "139"],
+  "editor.minimap.enabled": false,
+  "editor.suggest.showMethods": true,
+  "editor.suggest.preview": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.snippetSuggestions": "top",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": false,
+  "emmet.includeLanguages": {
+    "js": "html",
+    "javascript": "html"
+  }
+}
