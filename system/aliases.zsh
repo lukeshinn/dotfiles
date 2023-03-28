@@ -14,3 +14,5 @@ then
 fi
 
 alias hudl="cd ~/Developer/"
+alias condaantioch="conda activate antiochapi"
+alias gitremovebranches="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
