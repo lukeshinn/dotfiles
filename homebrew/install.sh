@@ -24,6 +24,7 @@ neovim/neovim/neovim
 ruby
 go
 node
+python
 # docker
 docker
 docker-machine
@@ -36,13 +37,8 @@ htop
 wget
 ack
 coreutils
-jq
-parallel
 terminal-notifier
-# fun
-archey
-figlet
-the_silver_searcher
+anaconda
 )
 
 apps=(
@@ -50,19 +46,13 @@ apps=(
 docker
 slack
 discord
-dropbox
-virtualbox
-1password
 iterm2
 cyberduck
 virtualbox
-sublime-text
 # utilities
 # independent trackpad and mouse scroll direction
 scroll-reverser
 xscope
-# text expansion
-atext
 # browsers
 firefox
 google-chrome
