@@ -39,6 +39,7 @@ ack
 coreutils
 terminal-notifier
 anaconda
+flycut
 )
 
 apps=(
@@ -49,10 +50,7 @@ discord
 iterm2
 cyberduck
 virtualbox
-# utilities
-# independent trackpad and mouse scroll direction
-scroll-reverser
-xscope
+visual-studio-code
 # browsers
 firefox
 google-chrome
@@ -66,4 +64,4 @@ echo "==> Installing packages"
 brew install "${packages[@]}"
 
 echo "==> Installing apps"
-#brew cask install "${apps[@]}"
+brew cask install "${apps[@]}"
