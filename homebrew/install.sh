@@ -7,8 +7,8 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew tap caskroom/cask
-brew install brew-cask
+brew tap homebrew/cask
+brew install homebrew/cask
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
@@ -24,6 +24,7 @@ neovim/neovim/neovim
 ruby
 go
 node
+python
 # docker
 docker
 docker-machine
@@ -36,44 +37,28 @@ htop
 wget
 ack
 coreutils
-jq
-parallel
 terminal-notifier
-# fun
-archey
-figlet
-the_silver_searcher
+anaconda
+flycut
 )
 
 apps=(
 # productivity
-docker
-slack
+#docker
+#slack
 discord
-dropbox
-virtualbox
-1password
 iterm2
 cyberduck
-virtualbox
-sublime-text
-# utilities
-# independent trackpad and mouse scroll direction
-scroll-reverser
-xscope
-# text expansion
-atext
+visual-studio-code
 # browsers
 firefox
 google-chrome
 # music
 spotify
-# fonts
-font-hack-nerd-font
 )
 
 echo "==> Installing packages"
 brew install "${packages[@]}"
 
 echo "==> Installing apps"
-#brew cask install "${apps[@]}"
+brew install --cask "${apps[@]}"

@@ -26,6 +26,8 @@ There's a few special files in the hierarchy.
 
 ## install
 
+Install homebrew `https://brew.sh/`
+
 ```sh
 cd ~/dotfiles/scripts
 ./bootstrap
