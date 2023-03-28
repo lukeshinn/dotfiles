@@ -7,8 +7,8 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew tap caskroom/cask
-brew install brew-cask
+brew tap homebrew/cask
+brew install homebrew/cask
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
@@ -44,24 +44,21 @@ flycut
 
 apps=(
 # productivity
-docker
-slack
+#docker
+#slack
 discord
 iterm2
 cyberduck
-virtualbox
 visual-studio-code
 # browsers
 firefox
 google-chrome
 # music
 spotify
-# fonts
-font-hack-nerd-font
 )
 
 echo "==> Installing packages"
 brew install "${packages[@]}"
 
 echo "==> Installing apps"
-brew cask install "${apps[@]}"
+brew install --cask "${apps[@]}"
