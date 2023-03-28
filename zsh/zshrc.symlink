@@ -77,7 +77,7 @@ plugins=(
   iterm2
   macports
   man
-  osx
+  macos
   python
   composer
   virtualenv
