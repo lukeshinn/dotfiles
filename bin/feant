@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+BASE_URL=$1--latest.thorhudl.com BASE_APP_URL=https://$1--latest.fan.thorhudl.com behave $2 $3
+

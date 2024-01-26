@@ -24,6 +24,7 @@ neovim/neovim/neovim
 ruby
 go
 node
+nvm
 python
 # docker
 docker
@@ -38,7 +39,6 @@ wget
 ack
 coreutils
 terminal-notifier
-anaconda
 flycut
 )
 
@@ -46,6 +46,7 @@ apps=(
 # productivity
 #docker
 #slack
+miniconda
 discord
 iterm2
 cyberduck

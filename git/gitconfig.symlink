@@ -16,7 +16,7 @@
 	com = checkout master
 	pom = pull origin master
 	comp = !git checkout master && git pull origin master
-	ac = !git add -A && git commit -m
+	ac = !git add -A && git commit -S -m
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	lrb = ls-remote --heads origin
@@ -60,3 +60,6 @@
 [user]
 	name = Luke Shinn
 	email = luke.shinn.efp@gmail.com
+	signingkey = F97F4D5C159B9A17
+[pull]
+	rebase = true
