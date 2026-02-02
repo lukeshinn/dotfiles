@@ -33,6 +33,7 @@ docker-compose
 # utilities
 z
 fzf
+the_silver_searcher
 ranger
 htop
 wget

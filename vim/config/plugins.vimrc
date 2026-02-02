@@ -15,6 +15,9 @@ Plug 'scrooloose/nerdcommenter'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'tomtom/tlib_vim'
 
+" Search tool
+Plug 'mileszs/ack.vim'
+
 " Adds end curleys and brackets
 Plug 'valloric/matchtagalways'
 

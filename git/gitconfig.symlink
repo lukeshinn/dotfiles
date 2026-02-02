@@ -60,6 +60,10 @@
 [user]
 	name = Luke Shinn
 	email = luke.shinn.efp@gmail.com
-	signingkey = F97F4D5C159B9A17
+	signingkey = 5D5DF28A8998FA85
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true

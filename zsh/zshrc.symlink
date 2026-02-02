@@ -50,6 +50,10 @@ then
   source ~/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+#set GPG environment variables
+GPG_TTY=$(tty)
+export GPG_TTY
+
 ##### START: oh-my-zsh theme #####
 export ZSH="/Users/luke.shinn/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -118,13 +122,39 @@ case ":$PATH:" in
 esac
 # pnpm end
 # ANDROID STUDIO
+#export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+#export ANDROID_HOME=/Users/luke.shinn/Library/Android/sdk
+#export PATH=$ANDROID_HOME/emulator:$PATH
+#export PATH=$ANDROID_HOME/tools:$PATH
+#export PATH=$ANDROID_HOME/tools/bin:$PATH
+#export PATH=$ANDROID_HOME/platform-tools:$PATH
+#export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+#export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+#export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+#export PATH=$PATH:$ANDROID_SDK_ROOT/platform-toolsexport PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
 export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
-export ANDROID_HOME=/Users/luke.shinn/Library/Android/sdk
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-toolsexport PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/luke.shinn/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+#export CLAUDE_CODE_USE_BEDROCK=1
+## Or most recently released Haiku model
+#export ANTHROPIC_DEFAULT_HAIKU_MODEL='us.anthropic.claude-haiku-4-5-20251001-v1:0'
+#export AWS_PROFILE='SandboxAdmin_Sandbox_1355-639769761355' # optional default
+
+
+# START: RN_HUDL_SELECTED_PRODUCT_HOOK_V3
+# This hook sources the rn-hudl zsh script when in the rn-hudl repo.
+chpwd() {
+  if [[ -f "platform-tools/product-toolkit/selected-product.zsh" ]]; then
+    source "platform-tools/product-toolkit/selected-product.zsh"
+  fi
+}
+chpwd
+# END: RN_HUDL_SELECTED_PRODUCT_HOOK_V3
+

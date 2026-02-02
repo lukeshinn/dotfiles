@@ -83,9 +83,9 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 "  Nerd Tree Settings
 "==============================================================================
 autocmd BufEnter * lcd %:p:h
-let loaded_netrwPlugin = 1
+let loaded_netrwPlugin =1
 let NERDTreeQuitOnOpen=1
-autocmd vimenter * NERDTree   " load NERDtree on open
+" autocmd vimenter * NERDTree   " load NERDtree on open
 " set autochdir                 " open window in same path as NT
 
 
@@ -136,7 +136,7 @@ nnoremap <C-H> <C-W><C-H>
 nmap <silent> <leader>nf :NERDTreeFind<CR><c-w>=
 
 "" map toggle NERDtree
-nnoremap <leader>nt :NERDTreeToggle %<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 "" redraw becasue prettydiff function is broken
 nnoremap <leader>rd :redraw! <CR>
@@ -156,3 +156,29 @@ nmap td :tabclose<CR>
 " VIM NOTES
 "==============================================================================
 " silver searcher: https://thoughtbot.com/blog/faster-grepping-in-vim
+"
+function! InsertPage(pageName)
+  " Insert import below the last import
+  let importLine = 'import { ' . a:pageName . ' } from ''../../pages/' . a:pageName . ''';'
+  let lnum = search('^import', 'bnW')
+  call append(lnum, importLine)
+
+  " Insert field into LeagueProfileFixture type
+  let fieldName = substitute(a:pageName, '^\(.\)', '\L\1', '')
+  let fieldLine = '  ' . fieldName . ': ' . a:pageName . ';'
+
+  let typeStart = search('type LeagueProfileFixture', 'n')
+  let typeEnd = search('};', 'n', typeStart)
+  call append(typeEnd - 1, fieldLine)
+
+  " Insert async function after the type
+  let funcLineNum = typeEnd + 1
+  call append(funcLineNum, [
+        \ '',
+        \ 'async function get' . a:pageName . '(): Promise<void> {',
+        \ '  // TODO: implement',
+        \ '}'
+        \ ])
+endfunction
+
+command! -nargs=1 InsertPage call InsertPage(<f-args>)

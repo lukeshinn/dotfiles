@@ -28,3 +28,6 @@ fi
 
 # JAVA
 #export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Tell bash about homebrew packages
+export PATH=/opt/homebrew/bin:$PATH
